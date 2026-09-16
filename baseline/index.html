@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ian Downham — Supply Chain &amp; Trade Strategy</title>
+<meta name="description" content="Supply chain analyst focused on trade strategy, cost modeling, and AI process automation.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f6f7f9;
+    --ink:#111927;
+    --ink-2:#3d4a5c;
+    --ink-3:#6b7889;
+    --line:#e2e6ec;
+    --accent:#1b3a5c;
+    --accent-2:#2f6b9a;
+    --chip:#eef2f7;
+    --maxw:960px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1420;
+      --bg-alt:#141c2b;
+      --ink:#eef2f8;
+      --ink-2:#c2ccda;
+      --ink-3:#8d9aab;
+      --line:#243044;
+      --accent:#a8c8e8;
+      --accent-2:#7fb0dd;
+      --chip:#1b2536;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);font-size:15px}
+  .navlinks{display:flex;gap:22px;flex-wrap:wrap}
+  .navlinks a{color:var(--ink-3);font-size:14px;font-weight:500}
+  .navlinks a:hover{color:var(--ink);text-decoration:none}
+  @media (max-width:640px){.navlinks{display:none}}
+
+  /* hero */
+  header{padding:72px 0 52px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:650;margin:0 0 14px;
+  }
+  h1{
+    font-size:clamp(34px,6vw,52px);line-height:1.08;letter-spacing:-.025em;
+    margin:0 0 18px;font-weight:680;
+  }
+  .lede{font-size:clamp(17px,2.2vw,19px);color:var(--ink-2);max-width:62ch;margin:0 0 28px}
+  .contact{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid var(--line);background:var(--bg-alt);
+    color:var(--ink-2);border-radius:7px;padding:9px 15px;
+    font-size:14px;font-weight:550;
+  }
+  .btn:hover{border-color:var(--accent-2);color:var(--ink);text-decoration:none}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .btn.primary{color:#0e1420}
+  }
+  .btn.primary:hover{opacity:.9;color:#fff}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .btn.primary:hover{color:#0e1420}
+  }
+
+  /* stats */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:44px 0 0;
+  }
+  .stat{background:var(--bg);padding:20px 18px}
+  .stat .n{font-size:clamp(22px,3.4vw,29px);font-weight:680;letter-spacing:-.02em;color:var(--ink);line-height:1.15}
+  .stat .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;line-height:1.45}
+  @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* sections */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  h2{
+    font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:650;margin:0 0 30px;
+  }
+  h3{font-size:19px;font-weight:640;letter-spacing:-.015em;margin:0 0 3px}
+  .meta{font-size:14px;color:var(--ink-3);margin:0 0 16px}
+  .meta .org{color:var(--ink-2);font-weight:550}
+
+  .role{padding-bottom:34px;margin-bottom:34px;border-bottom:1px dashed var(--line)}
+  .role:last-child{padding-bottom:0;margin-bottom:0;border-bottom:none}
+  .sub{
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-2);font-weight:650;margin:22px 0 10px;
+  }
+  ul{margin:0;padding:0;list-style:none}
+  li{position:relative;padding-left:19px;margin-bottom:11px;color:var(--ink-2);font-size:15.3px}
+  li::before{
+    content:"";position:absolute;left:2px;top:10px;
+    width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.65;
+  }
+  li b{color:var(--ink);font-weight:600}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{
+    border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--bg-alt);
+  }
+  .card h3{font-size:17px;margin-bottom:4px}
+  .card .meta{margin-bottom:13px;font-size:13.5px}
+  .card li{font-size:14.5px}
+
+  /* skills */
+  .skillrow{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:16px 0;border-top:1px solid var(--line)}
+  .skillrow:first-of-type{border-top:none;padding-top:0}
+  .skillrow .k{font-size:14px;font-weight:600;color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    background:var(--chip);border:1px solid var(--line);border-radius:6px;
+    padding:5px 11px;font-size:13.5px;color:var(--ink-2);
+  }
+  @media (max-width:640px){.skillrow{grid-template-columns:1fr;gap:9px}}
+
+  footer{padding:38px 0 56px;color:var(--ink-3);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Ian Downham</span>
+    <div class="navlinks">
+      <a href="#experience">Experience</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#casework">Case Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Supply Chain &middot; Trade Strategy &middot; AI Automation</p>
+    <h1>I find the money hiding in supply chain data.</h1>
+    <p class="lede">
+      Supply chain analyst working at the intersection of sourcing strategy, trade compliance, and
+      process automation — turning raw procurement data into cost models, executive reporting, and
+      AI-driven workflows that hold up in production.
+    </p>
+    <div class="contact">
+      <a class="btn primary" href="mailto:iandownham@icloud.com">iandownham@icloud.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/iandownham/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="n">$1.2M</div>
+        <div class="l">Annual savings identified in a single sourcing category</div>
+      </div>
+      <div class="stat">
+        <div class="n">400+</div>
+        <div class="l">Global vendors analyzed for Section 232/301 tariff exposure</div>
+      </div>
+      <div class="stat">
+        <div class="n">20% &rarr; 4%</div>
+        <div class="l">Negative parts availability, week over week</div>
+      </div>
+      <div class="stat">
+        <div class="n">12+</div>
+        <div class="l">AI applications on a department-wide roadmap</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional Experience</h2>
+
+    <div class="role">
+      <h3>Supply Chain Analyst Intern</h3>
+      <p class="meta"><span class="org">Labrie Environmental Group</span> &middot; May 2025 – Present</p>
+
+      <p class="sub">Trade Strategy &amp; Cost Savings</p>
+      <ul>
+        <li>Identified a supplier pricing discrepancy in hydraulic fittings through independent spend analysis and built cost models uncovering <b>$1.2M in annual savings (67% category spend reduction)</b>, mobilizing a cross-functional sourcing, logistics, and engineering team to execute the supplier transition — now in production following FAI/FBI approvals.</li>
+        <li>Led <b>Section 232/301 tariff impact analysis</b> across 400+ global vendors and HTS codes, identifying strategic exclusions (steel addendums, USMCA) to convert tariff exposure into cost avoidance.</li>
+        <li>Audited <b>USMCA qualification</b> across ~50 bills of materials spanning U.S., Canada, and Mexico plants, extracting raw material data and cost to verify trade compliance.</li>
+        <li>Consolidated monthly spend data into executive summaries and plant-level KPI scorecards for <b>CEO/Board-level reporting</b>; tracks CRU commodity pricing (steel, aluminum, copper) and cost savings initiatives company-wide.</li>
+      </ul>
+
+      <p class="sub">AI Process Automation &amp; Innovation</p>
+      <ul>
+        <li>Designed and built a <b>spend intelligence hub</b> that uses AI to transform raw procurement reports into automated visual and trend insights, expanding into a department-wide AI roadmap with 12+ additional applications in progress.</li>
+        <li>Automated late PO / negative availability tracking through <b>5 Power Automate workflows</b> integrating SourceDay (Snowflake) with internal databases, delivering personalized weekly worksheets to buyers and performance summaries to managers on high-risk purchase orders and parts.</li>
+        <li>Transformed Service Center negative parts availability tracking with an Excel model, converting raw data into a readable weekly report for stakeholders — <b>reducing negative availability from 20% to consistently below 4%</b> week over week, with monthly AI trend analysis to flag chronic shortage parts.</li>
+        <li>Used <b>SQL</b> to extract and merge millions of lines of PO/lead-time data from SourceDay, leveraging AI to evaluate ERP lead-time accuracy across the supplier network.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <h3>DC eCommerce &amp; Receiving</h3>
+      <p class="meta"><span class="org">Fit2Run</span> &middot; Bradenton, FL &middot; May 2024 – Aug 2024</p>
+      <ul>
+        <li>Managed daily inbound logistics for a high-volume distribution center, processing <b>10,000+ inventory units daily</b> and identifying a software bottleneck in the receiving workflow.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap">
+    <h2>Ventures</h2>
+    <div class="role">
+      <h3>Co-Founder</h3>
+      <p class="meta"><span class="org">Verta LLC</span> &middot; Jan 2025 – Present</p>
+      <ul>
+        <li>Co-founded a government contracting venture based on analysis identifying market inefficiencies in <b>small business set-asides (FAR 19.5)</b>, where a significant number of contracts receive only a single bid.</li>
+        <li>Conducted due diligence for each proposal by analyzing supplier pricing and calculating project costs to determine bid viability and potential profit margin.</li>
+        <li>Assessed execution and compliance risk for federal small business set-aside proposals, evaluating regulations and capabilities before bid submission.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="casework">
+  <div class="wrap">
+    <h2>Case Work &amp; Competitions</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>IANA Razorback Case Study Competition</h3>
+        <p class="meta">Team Lead &middot; University of Arkansas &middot; Spring 2026</p>
+        <ul>
+          <li>Led a 5-person team's cost model analysis for a reshoring decision, evaluating manufacturing capacity, tariffs, carrying costs, transportation, and service penalties across <b>11 states and 1M+ units annually</b>.</li>
+          <li>Presented cost analysis, a state-by-state breakdown, and a board-level recommendation to a judging panel of executives from Walmart, Sam's Club, Tyson, and J.B. Hunt.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>HEB Case Strategies</h3>
+        <p class="meta">Fall 2026</p>
+        <ul>
+          <li>Case study working with HEB leadership to research robotic opportunities in their warehouse.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills &amp; Interests</h2>
+    <div class="skillrow">
+      <div class="k">Technical</div>
+      <div class="chips">
+        <span class="chip">Excel</span><span class="chip">Power Automate</span><span class="chip">Power BI</span>
+        <span class="chip">ERP</span><span class="chip">SQL</span><span class="chip">AI Data Analysis</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="k">Compliance</div>
+      <div class="chips">
+        <span class="chip">USMCA</span><span class="chip">HTS Codes</span><span class="chip">Section 232 / 301 Tariffs</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="k">Interests</div>
+      <div class="chips">
+        <span class="chip">Artificial Intelligence</span><span class="chip">Pickleball — University Club Team</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education &amp; Certifications</h2>
+    <div class="role">
+      <h3>B.S. in Supply Chain Management</h3>
+      <p class="meta"><span class="org">University of Arkansas</span> &middot; Fayetteville, AR &middot; Graduating May 2027</p>
+      <ul>
+        <li>Minor in <b>Enterprise Resource Planning (ERP)</b>.</li>
+      </ul>
+      <p class="sub">Certifications</p>
+      <div class="chips">
+        <span class="chip">McKinsey Forward Program — McKinsey &amp; Company</span>
+        <span class="chip">AI Fluency: Framework &amp; Foundations — Anthropic</span>
+        <span class="chip">Constraint &amp; Bottleneck Management — LinkedIn</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Ian Downham &middot; Fayetteville, AR</span>
+    <span><a href="mailto:iandownham@icloud.com">iandownham@icloud.com</a> &middot; <a href="https://www.linkedin.com/in/iandownham/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
