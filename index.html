@@ -24,7 +24,7 @@
 <div class="bar">
   <div class="wrap">
     <span class="me" role="img" aria-label="Ian Downham">
-      <span class="swap" aria-hidden="true"><span class="full">Ian Downham</span><span class="short">ID</span></span>
+      <span class="wm" aria-hidden="true"><span class="ax">I</span><span class="ex"><i>an&nbsp;</i></span><span class="ax">D</span><span class="ex"><i>ownham</i></span></span>
     </span>
     <nav>
       <a href="#education">Education</a>
@@ -275,7 +275,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Ian Downham · Fayetteville, Arkansas</span>
+    <span>Ian Downham</span>
     <span>
       <a href="mailto:iandownham@icloud.com">Email</a> ·
       <a href="https://www.linkedin.com/in/iandownham/" target="_blank" rel="noopener">LinkedIn</a> ·
@@ -287,14 +287,48 @@
 
 <script>
 (function () {
-  var sentinel = document.getElementById('hero-end');
-  if (!sentinel || !('IntersectionObserver' in window)) {
-    document.body.classList.add('scrolled');   // no JS support: just show the full name
+  var mark = document.querySelector('.wm');
+  var me   = document.querySelector('.me');
+  var sent = document.getElementById('hero-end');
+  if (!mark || !me) return;
+
+  var parts = [].slice.call(mark.querySelectorAll('.ex'));
+
+  // Measure each hidden segment at its natural width, then reserve the
+  // wordmark's full expanded width so the centred nav never shifts.
+  function measure() {
+    var total = 0;
+    parts.forEach(function (p) {
+      var w = p.firstChild.getBoundingClientRect().width;
+      p.style.setProperty('--w', w + 'px');
+      total += w;
+    });
+    mark.querySelectorAll('.ax').forEach(function (a) {
+      total += a.getBoundingClientRect().width;
+    });
+    me.style.minWidth = Math.ceil(total) + 'px';
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(measure);
+  } else {
+    window.addEventListener('load', measure);
+  }
+  measure();
+
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(measure, 150);
+  });
+
+  if (!sent || !('IntersectionObserver' in window)) {
+    document.body.classList.add('scrolled');
     return;
   }
-  new IntersectionObserver(function (entries) {
-    document.body.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, { rootMargin: '-68px 0px 0px 0px', threshold: 0 }).observe(sentinel);
+  new IntersectionObserver(function (e) {
+    document.body.classList.toggle('scrolled', !e[0].isIntersecting);
+  }, { rootMargin: '-68px 0px 0px 0px', threshold: 0 }).observe(sent);
 })();
 </script>
 </body>

@@ -48,19 +48,26 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 }
 .bar .wrap{display:flex;align-items:center;height:68px;gap:20px}
 .bar .me{font-size:20px;font-weight:650;letter-spacing:-.032em;color:var(--ink);flex:0 0 auto}
-.swap{position:relative;display:inline-block;white-space:nowrap}
-.swap .full,.swap .short{
-  transition:opacity .34s cubic-bezier(.4,0,.2,1), transform .34s cubic-bezier(.4,0,.2,1);
-  will-change:opacity,transform;
+/* wordmark: ID expands to Ian Downham -- the I and D stay put as anchors
+   while 'an ' and 'ownham' grow out from between and after them.
+   .me reserves the full expanded width in JS so the centred nav never moves. */
+.wm{display:inline-flex;align-items:baseline;white-space:nowrap}
+.wm .ax{display:inline-block}
+.wm .ex{
+  display:inline-block;overflow:hidden;width:0;
+  transition:width .46s cubic-bezier(.62,.02,.34,1);
 }
-/* .full stays in flow so the wordmark never changes width -- no nav jitter */
-.swap .full{opacity:0;transform:translateY(7px)}
-.swap .short{position:absolute;left:0;top:0;opacity:1;transform:translateY(0)}
-body.scrolled .swap .full{opacity:1;transform:translateY(0)}
-body.scrolled .swap .short{opacity:0;transform:translateY(-7px)}
+.wm .ex i{
+  display:inline-block;font-style:normal;white-space:pre;
+  opacity:0;transform:translateX(-5px);
+  transition:opacity .26s ease .06s, transform .46s cubic-bezier(.62,.02,.34,1);
+}
+body.scrolled .wm .ex{width:var(--w,auto)}
+body.scrolled .wm .ex i{opacity:1;transform:translateX(0)}
+
 @media (prefers-reduced-motion: reduce){
-  .swap .full,.swap .short{transition:opacity .01ms}
-  .swap .full,.swap .short{transform:none}
+  .wm .ex,.wm .ex i{transition:none}
+  .wm .ex i{transform:none}
 }
 .bar .me .dot{color:var(--accent)}
 .bar nav{flex:1;display:flex;justify-content:center;gap:30px}
