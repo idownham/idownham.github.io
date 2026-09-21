@@ -209,6 +209,7 @@ a.cert:hover .cx{color:var(--accent)}
 .kv:first-of-type{border-top:none;padding-top:0}
 .kv .k{font-size:13.5px;color:var(--ink-3);font-weight:500;padding-top:3px}
 .kv .sub{color:var(--ink-3);font-size:14.5px}
+.kv .ln{margin-top:7px}
 @media (max-width:600px){.kv{grid-template-columns:1fr;gap:8px}}
 
 .tags{display:flex;flex-wrap:wrap;gap:7px}
