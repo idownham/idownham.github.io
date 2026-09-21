@@ -48,6 +48,20 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 }
 .bar .wrap{display:flex;align-items:center;height:68px;gap:20px}
 .bar .me{font-size:20px;font-weight:650;letter-spacing:-.032em;color:var(--ink);flex:0 0 auto}
+.swap{position:relative;display:inline-block;white-space:nowrap}
+.swap .full,.swap .short{
+  transition:opacity .34s cubic-bezier(.4,0,.2,1), transform .34s cubic-bezier(.4,0,.2,1);
+  will-change:opacity,transform;
+}
+/* .full stays in flow so the wordmark never changes width -- no nav jitter */
+.swap .full{opacity:0;transform:translateY(7px)}
+.swap .short{position:absolute;left:0;top:0;opacity:1;transform:translateY(0)}
+body.scrolled .swap .full{opacity:1;transform:translateY(0)}
+body.scrolled .swap .short{opacity:0;transform:translateY(-7px)}
+@media (prefers-reduced-motion: reduce){
+  .swap .full,.swap .short{transition:opacity .01ms}
+  .swap .full,.swap .short{transform:none}
+}
 .bar .me .dot{color:var(--accent)}
 .bar nav{flex:1;display:flex;justify-content:center;gap:30px}
 .bar nav a{color:var(--ink-2);font-size:15px;font-weight:500;letter-spacing:-.008em}
@@ -67,17 +81,16 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 }
 
 /* ---------- hero ---------- */
-.hero{padding:72px 0 46px}
+.hero{padding:76px 0 50px}
+.hero h1{font-size:clamp(38px,5.6vw,50px);line-height:1.02;letter-spacing:-.042em;
+  font-weight:650;margin:0 0 16px}
+.stmt{font-size:clamp(18px,2.3vw,21.5px);color:var(--ink);font-weight:500;
+  letter-spacing:-.021em;line-height:1.38;max-width:33ch;margin:0 0 18px}
 .eyebrow{
   font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
   font-weight:600;color:var(--accent);margin:0 0 15px;
 }
-.hero h1{
-  font-size:clamp(29px,3.9vw,37px);line-height:1.16;letter-spacing:-.03em;
-  font-weight:600;margin:0 0 19px;max-width:21ch;
-}
-
-.hero p{font-size:17.5px;color:var(--ink-2);max-width:62ch;margin:0 0 14px}
+.hero p{font-size:16.5px;color:var(--ink-2);max-width:60ch;margin:0 0 14px;line-height:1.6}
 .hero p strong{color:var(--ink);font-weight:550}
 .avail{font-size:15.5px;color:var(--ink-3);margin-top:24px}
 .avail b{color:var(--ink-2);font-weight:550}
@@ -95,8 +108,9 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 @media (max-width:560px){
   .hero{padding:44px 0 34px}
   .eyebrow{font-size:10.5px;letter-spacing:.1em;margin-bottom:12px}
-  .hero h1{font-size:26.5px;line-height:1.2;margin-bottom:15px}
-  .hero p{font-size:16px;line-height:1.58}
+  .hero h1{font-size:34px;margin-bottom:12px}
+  .stmt{font-size:17.5px;margin-bottom:14px}
+  .hero p{font-size:15.8px;line-height:1.58}
   .avail{font-size:14.5px;margin-top:18px}
   .actions{gap:8px;margin-top:20px}
   .btn{padding:9px 14px;font-size:14px}
