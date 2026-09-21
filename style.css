@@ -67,11 +67,38 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 }
 
 /* ---------- hero ---------- */
-.hero{padding:76px 0 46px}
-.hero h1{
-  font-size:clamp(30px,4.4vw,41px);line-height:1.17;letter-spacing:-.03em;
-  font-weight:600;margin:0 0 20px;max-width:26ch;
+.hero{padding:72px 0 46px}
+.hgrid{display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:start}
+@media (max-width:880px){.hgrid{grid-template-columns:1fr;gap:32px}}
+
+.eyebrow{
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--accent);margin:0 0 15px;
 }
+.hero h1{
+  font-size:clamp(29px,3.9vw,37px);line-height:1.16;letter-spacing:-.03em;
+  font-weight:600;margin:0 0 19px;max-width:21ch;
+}
+
+/* profile card */
+.pcard{background:var(--accent-dk);color:#fff;border-radius:12px;padding:25px 26px 24px}
+.pcard .ptag{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#93a7bd;font-weight:600;margin:0 0 17px}
+.pcard .mono{font-size:36px;font-weight:650;letter-spacing:-.05em;line-height:1;margin-bottom:21px}
+.pcard .rule{height:1px;background:rgba(255,255,255,.17);margin:17px 0}
+.pcard .pk{font-size:12px;color:#93a7bd;margin-bottom:2px}
+.pcard .pv{font-size:15px;font-weight:550;letter-spacing:-.015em;margin-bottom:13px;line-height:1.35}
+.pcard .pv:last-child{margin-bottom:0}
+
+@media (max-width:880px){
+  .pcard{padding:22px 22px 20px}
+  .pcard .mono{display:none}
+  .pcard .ptag{margin-bottom:14px}
+  .pcard .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+  .pcard .rule{display:none}
+  .pcard .pv{margin-bottom:0}
+}
+@media (max-width:420px){.pcard .grid2{grid-template-columns:1fr;gap:12px}}
 .hero p{font-size:17.5px;color:var(--ink-2);max-width:62ch;margin:0 0 14px}
 .hero p strong{color:var(--ink);font-weight:550}
 .avail{font-size:15.5px;color:var(--ink-3);margin-top:24px}
@@ -86,6 +113,16 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .btn:hover{border-color:var(--ink-3);color:var(--ink);text-decoration:none}
 .btn.solid{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn.solid:hover{background:var(--accent-dk);border-color:var(--accent-dk);color:var(--accent-ink)}
+
+@media (max-width:560px){
+  .hero{padding:44px 0 34px}
+  .eyebrow{font-size:10.5px;letter-spacing:.1em;margin-bottom:12px}
+  .hero h1{font-size:26.5px;line-height:1.2;margin-bottom:15px}
+  .hero p{font-size:16px;line-height:1.58}
+  .avail{font-size:14.5px;margin-top:18px}
+  .actions{gap:8px;margin-top:20px}
+  .btn{padding:9px 14px;font-size:14px}
+}
 
 /* ---------- hero metric strip ---------- */
 .strip{
