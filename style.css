@@ -150,17 +150,6 @@ h2{font-size:24px;font-weight:620;letter-spacing:-.028em;margin:0 0 5px}
 .rhead .when{font-size:13.5px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
 .rsum{font-size:15.5px;color:var(--ink-2);margin:0 0 6px;max-width:66ch;line-height:1.6}
 
-/* focus areas -- a scannable outline of a role, above its individual projects */
-.areas{margin:12px 0 0}
-.areas > div{
-  font-size:15.2px;color:var(--ink-2);line-height:1.55;max-width:70ch;
-  padding:7px 0 7px 14px;position:relative;
-}
-.areas > div::before{
-  content:"";position:absolute;left:0;top:15px;
-  width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55;
-}
-.areas b{color:var(--ink);font-weight:600}
 
 .proj{
   display:grid;grid-template-columns:1fr 158px;gap:26px;align-items:start;
